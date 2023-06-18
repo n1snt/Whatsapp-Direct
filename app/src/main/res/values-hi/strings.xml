@@ -1,4 +1,7 @@
 <?xml version="1.0" encoding="utf-8"?>
 <resources>
-    <string name="app_name">WA Direct</string>
+    <string name="phone_number">फ़ोन नंबर</string>
+    <string name="message">संदेश</string>
+    <string name="send">भेजना</string>
+    <string name="country_code">कंट्री कोड</string>
 </resources>

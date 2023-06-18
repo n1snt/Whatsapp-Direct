@@ -1,0 +1,7 @@
+<?xml version="1.0" encoding="utf-8"?>
+<resources>
+    <string name="phone_number">फोन नंबर</string>
+    <string name="message">संदेश</string>
+    <string name="send">पाठवा</string>
+    <string name="country_code">राष्ट्र संकेतांक</string>
+</resources>

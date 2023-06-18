@@ -25,7 +25,6 @@ fun ErrorDialog(
     onDismissRequest: Unit,
     showDialog: Boolean,
 ) {
-
     if (showDialog) {
         AlertDialog(
             onDismissRequest = { onDismissRequest },

@@ -66,7 +66,6 @@ class MainActivity : ComponentActivity() {
     }
 
 
-
     @OptIn(ExperimentalMaterial3Api::class)
     @Composable
     fun UI(modifier: Modifier = Modifier) {
@@ -96,15 +95,11 @@ class MainActivity : ComponentActivity() {
                         imeAction = ImeAction.Next
                     ),
                     modifier = Modifier
-                        .width(115.dp)
-                        .padding(horizontal = 5.dp)
-                    ,
-                    leadingIcon = {
-                        Text(
-                            text = stringResource(R.string.plus),
-                        )
-                    },
+                        .width(120.dp)
+                        .padding(horizontal = 5.dp),
+                    leadingIcon = { Text(text = stringResource(R.string.plus)) },
                     singleLine = true,
+                    supportingText = { Text(text = stringResource(R.string.country_code)) }
                 )
 
                 OutlinedTextField(

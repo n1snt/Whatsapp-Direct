@@ -1,8 +1,9 @@
 <resources>
     <string name="app_name" translatable="false">WA Direct</string>
     <string name="phone_number">Phone Number</string>
-    <string name="xx">XX</string>
-    <string name="plus">+</string>
+    <string name="xx" translatable="false">XX</string>
+    <string name="plus" translatable="false">+</string>
     <string name="message">Message</string>
     <string name="send">Send</string>
+    <string name="country_code">Country Code</string>
 </resources>
