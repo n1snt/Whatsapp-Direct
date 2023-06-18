@@ -1,0 +1,7 @@
+<?xml version="1.0" encoding="utf-8"?>
+<resources>
+    <string name="phone_number">Numéro de téléphone</string>
+    <string name="message">Message</string>
+    <string name="send">Envoyer</string>
+    <string name="country_code">Code postal</string>
+</resources>
