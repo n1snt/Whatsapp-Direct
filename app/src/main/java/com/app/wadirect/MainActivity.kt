@@ -38,7 +38,7 @@ import androidx.compose.ui.tooling.preview.Preview
 import androidx.compose.ui.unit.dp
 import com.app.wadirect.ui.theme.WADirectTheme
 
-class MainActivity : ComponentActivity() {
+class MainActivity: ComponentActivity() {
 
     private lateinit var sharedPrefs: SharedPrefs
 
