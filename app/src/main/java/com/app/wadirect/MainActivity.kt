@@ -1,5 +1,7 @@
 package com.app.wadirect
 
+import android.content.Intent
+import android.net.Uri
 import android.os.Bundle
 import android.util.Log
 import androidx.activity.ComponentActivity
@@ -138,7 +140,7 @@ class MainActivity: ComponentActivity() {
                     countryCodeEmpty = countryCodeVal.text.isBlank()
                     if (!countryCodeEmpty) {
                         sharedPrefs.setCountryCode(countryCodeVal.text)
-                        sendRequest(countryCodeVal.text + phoneNumberVal.text, messageVal.text, applicationContext)
+                        sendRequest(countryCodeVal.text + phoneNumberVal.text, messageVal.text)
                     }
                           },
                 modifier = Modifier
@@ -165,6 +167,12 @@ class MainActivity: ComponentActivity() {
         WADirectTheme {
             UI()
         }
+    }
+
+    private fun sendRequest(phoneNumber: String, message: String) {
+        val intent = Intent(Intent.ACTION_VIEW)
+        intent.data = Uri.parse("https://api.whatsapp.com/send?phone=${phoneNumber}&text=${Uri.encode(message)}")
+        startActivity(intent)
     }
 
 }
