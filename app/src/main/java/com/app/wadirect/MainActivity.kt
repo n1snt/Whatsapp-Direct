@@ -78,7 +78,7 @@ class MainActivity: ComponentActivity() {
                             style = MaterialTheme.typography.bodySmall,
                             modifier = Modifier
                                 .padding(paddingValues)
-                                .padding(horizontal = 20.dp)
+                                .padding(horizontal = 24.dp)
                         )
                     }
                     UI(
