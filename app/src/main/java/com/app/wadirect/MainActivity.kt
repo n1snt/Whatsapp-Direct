@@ -3,7 +3,6 @@ package com.app.wadirect
 import android.content.Intent
 import android.net.Uri
 import android.os.Bundle
-import android.util.Log
 import androidx.activity.ComponentActivity
 import androidx.activity.compose.setContent
 import androidx.compose.foundation.layout.Arrangement
@@ -53,7 +52,7 @@ class MainActivity: ComponentActivity() {
                 StatusBarNavbarColors()
                 Surface(
                     modifier = Modifier.fillMaxSize(),
-                    color = MaterialTheme.colorScheme.background
+                    color = MaterialTheme.colorScheme.background,
                 ) {
                     UI(
                         Modifier
@@ -87,9 +86,8 @@ class MainActivity: ComponentActivity() {
                 OutlinedTextField(
                     value = countryCodeVal,
                     onValueChange = { cc ->
-                        Log.d("Country code", cc.toString())
                         countryCodeVal = cc },
-                    label = { Text(text = stringResource(R.string.xx)) },
+                    label = { Text(text = stringResource(R.string.xx), style = MaterialTheme.typography.bodyMedium) },
                     keyboardOptions = KeyboardOptions(
                         keyboardType = KeyboardType.Number,
                         imeAction = ImeAction.Next
@@ -97,17 +95,16 @@ class MainActivity: ComponentActivity() {
                     modifier = Modifier
                         .width(120.dp)
                         .padding(horizontal = 5.dp),
-                    leadingIcon = { Text(text = stringResource(R.string.plus)) },
+                    leadingIcon = { Text(text = stringResource(R.string.plus), style = MaterialTheme.typography.labelLarge) },
                     singleLine = true,
-                    supportingText = { Text(text = stringResource(R.string.country_code)) }
+                    supportingText = { Text(text = stringResource(R.string.country_code), style = MaterialTheme.typography.labelSmall) }
                 )
 
                 OutlinedTextField(
                     value = phoneNumberVal,
                     onValueChange = { number ->
-                        Log.d("Phone no", number.text)
                         phoneNumberVal = number },
-                    label = { Text(text = stringResource(R.string.phone_number)) },
+                    label = { Text(text = stringResource(R.string.phone_number), style = MaterialTheme.typography.bodyMedium) },
                     keyboardOptions = KeyboardOptions(
                         keyboardType = KeyboardType.Phone,
                         imeAction = ImeAction.Next
@@ -123,9 +120,8 @@ class MainActivity: ComponentActivity() {
             OutlinedTextField(
                 value = messageVal,
                 onValueChange = { message ->
-                    Log.d("Message", message.text)
                     messageVal = message },
-                label = { Text(stringResource(R.string.message)) },
+                label = { Text(stringResource(R.string.message), style = MaterialTheme.typography.bodyMedium) },
                 keyboardOptions = KeyboardOptions(keyboardType = KeyboardType.Text),
                 modifier = Modifier
                     .fillMaxWidth()
@@ -153,8 +149,11 @@ class MainActivity: ComponentActivity() {
                 )
                 Spacer(modifier = Modifier.padding(5.dp))
                 Text(
-                    "Send",
-                    modifier = Modifier.padding(vertical = 12.dp)
+                    stringResource(R.string.send),
+                    style = MaterialTheme.typography.bodyMedium,
+                    modifier = Modifier.padding(
+                        vertical = 10.dp,
+                        horizontal = 5.dp),
                 )
             }
 

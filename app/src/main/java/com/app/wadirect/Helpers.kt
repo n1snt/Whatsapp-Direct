@@ -31,6 +31,5 @@ fun ErrorDialog(
             confirmButton = {},
             modifier = Modifier
         )
-
     }
 }
