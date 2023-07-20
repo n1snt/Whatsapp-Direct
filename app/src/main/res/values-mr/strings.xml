@@ -4,4 +4,6 @@
     <string name="message">संदेश</string>
     <string name="send">पाठवा</string>
     <string name="country_code">राष्ट्र संकेतांक</string>
+    <string name="whatsapp_direct_message">व्हाट्सएप डायरेक्ट मेसेज</string>
+    <string name="actionbar_sub_text">संपर्क क्रमांक जतन न करता Whatsapp वर संदेश पाठवा</string>
 </resources>

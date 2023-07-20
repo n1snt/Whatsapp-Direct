@@ -4,4 +4,6 @@
     <string name="message">संदेश</string>
     <string name="send">भेजना</string>
     <string name="country_code">कंट्री कोड</string>
+    <string name="whatsapp_direct_message">व्हाट्सएप डायरेक्ट मैसेज</string>
+    <string name="actionbar_sub_text">संपर्क नंबर सेव किए बिना व्हाट्सएप पर संदेश भेजें</string>
 </resources>

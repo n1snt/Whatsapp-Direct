@@ -4,4 +4,6 @@
     <string name="message">Message</string>
     <string name="send">Envoyer</string>
     <string name="country_code">Code postal</string>
+    <string name="whatsapp_direct_message">Message direct Whatsapp</string>
+    <string name="actionbar_sub_text">Envoyer des messages sur Whatsapp sans enregistrer de numéro de contact</string>
 </resources>

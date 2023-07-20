@@ -4,4 +4,6 @@
     <string name="message">Nachricht</string>
     <string name="send">Schicken</string>
     <string name="country_code">Landesvorwahl</string>
+    <string name="whatsapp_direct_message">WhatsApp-Direktnachricht</string>
+    <string name="actionbar_sub_text">Senden Sie Nachrichten auf WhatsApp, ohne eine Kontaktnummer zu speichern</string>
 </resources>
