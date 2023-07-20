@@ -67,7 +67,7 @@ class MainActivity: ComponentActivity() {
                             )
                         },
                     ) { paddingValues ->  
-                        Text(text = "Send messages on Whatsapp without saving a contact number.",
+                        Text(text = getString(R.string.actionbar_sub_text),
                             style = MaterialTheme.typography.bodySmall,
                             modifier = Modifier
                                 .padding(paddingValues)

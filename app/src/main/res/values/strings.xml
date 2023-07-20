@@ -7,4 +7,5 @@
     <string name="send">Send</string>
     <string name="country_code">Country Code</string>
     <string name="whatsapp_direct_message">Whatsapp Direct Message</string>
+    <string name="actionbar_sub_text">Send messages on Whatsapp without saving a contact number</string>
 </resources>
