@@ -68,9 +68,11 @@ class MainActivity: ComponentActivity() {
                         topBar = {
                             TopAppBar(title = {
                                 Text(getString(R.string.whatsapp_direct_message),
-                                    style = MaterialTheme.typography.titleMedium)
+                                    style = MaterialTheme.typography.titleLarge)
                             },
-                                modifier = Modifier.padding(10.dp),
+                                modifier = Modifier
+                                    .padding(10.dp)
+                                    .padding(top = 10.dp),
                             )
                         },
                     ) { paddingValues ->  
