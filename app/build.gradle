@@ -11,8 +11,10 @@ android {
         applicationId "com.app.wadirect"
         minSdk 23
         targetSdk 33
-        versionCode 1
-        versionName "1.0"
+
+        versionCode 1000103
+        versionName "1.0.1"
+        resourceConfigurations += ['en', 'hi', 'mr', 'fr', 'de', 'es']
 
         testInstrumentationRunner "androidx.test.runner.AndroidJUnitRunner"
         vectorDrawables {
@@ -59,7 +61,7 @@ dependencies {
 
     // Testing
     testImplementation 'junit:junit:4.13.2'
-    testImplementation 'org.mockito:mockito-core:5.2.0'
+    testImplementation 'org.mockito:mockito-core:5.3.1'
     // AndroidX testing
     androidTestImplementation 'androidx.test:runner:1.5.2'
     androidTestImplementation 'androidx.test:core:1.5.0'
