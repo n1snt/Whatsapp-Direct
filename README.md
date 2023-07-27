@@ -1,5 +1,8 @@
 # Whatsapp-Direct
-Send WhatsApp messages instantly without saving numbers.
+Send WhatsApp messages instantly without saving numbers.<br>
+<a href='https://play.google.com/store/apps/details?id=com.app.wadirect&pcampaignid=pcampaignidMKT-Other-global-all-co-prtnr-py-PartBadge-Mar2515-1'>
+  <img alt='Get it on Google Play' src='https://play.google.com/intl/en_us/badges/static/images/badges/en_badge_web_generic.png' width="350"/>
+</a>
 
 ## Screenshots:
 <p align="center">
