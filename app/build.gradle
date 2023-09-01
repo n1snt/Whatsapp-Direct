@@ -5,12 +5,12 @@ plugins {
 
 android {
     namespace 'com.app.wadirect'
-    compileSdk 33
+    compileSdk 34
 
     defaultConfig {
         applicationId "com.app.wadirect"
         minSdk 23
-        targetSdk 33
+        targetSdk 34
 
         versionCode 1000103
         versionName "1.0.1"
