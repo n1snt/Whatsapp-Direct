@@ -65,6 +65,7 @@ fun MainScreen(modifier: Modifier = Modifier, countryCodeSharedPref: String, but
                     )
                 },
             ) { paddingValues ->
+
                 Text(text = stringResource(R.string.actionbar_sub_text),
                     style = MaterialTheme.typography.bodySmall,
                     modifier = Modifier
