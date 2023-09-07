@@ -1,4 +1,4 @@
-package com.app.wadirect
+package com.app.wadirect.screens
 
 import androidx.compose.foundation.layout.Arrangement
 import androidx.compose.foundation.layout.Column
@@ -35,6 +35,8 @@ import androidx.compose.ui.text.input.KeyboardType
 import androidx.compose.ui.text.input.TextFieldValue
 import androidx.compose.ui.tooling.preview.Preview
 import androidx.compose.ui.unit.dp
+import com.app.wadirect.R
+import com.app.wadirect.StatusBarNavbarColors
 import com.app.wadirect.ui.theme.WADirectTheme
 
 @OptIn(ExperimentalMaterial3Api::class)

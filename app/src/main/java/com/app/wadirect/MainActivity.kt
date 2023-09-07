@@ -10,6 +10,10 @@ import android.os.Vibrator
 import android.os.VibratorManager
 import androidx.activity.ComponentActivity
 import androidx.activity.compose.setContent
+import androidx.navigation.compose.NavHost
+import androidx.navigation.compose.composable
+import androidx.navigation.compose.rememberNavController
+import com.app.wadirect.screens.MainScreen
 
 class MainActivity: ComponentActivity() {
 
@@ -20,12 +24,18 @@ class MainActivity: ComponentActivity() {
         super.onCreate(savedInstanceState)
         sharedPrefs = SharedPrefs(this)
         getVibrator()
+
         setContent {
-            MainScreen(countryCodeSharedPref = sharedPrefs.getCountryCode().toString(),
-                buttonOnClick = { isEmpty: Boolean, countryCodeVal: String, phoneNumberVal: String, messageVal: String ->
-                    onSend(isEmpty, countryCodeVal, phoneNumberVal, messageVal)
+            val navController = rememberNavController()
+            NavHost(navController = navController, startDestination = MAIN_SCREEN) {
+                composable(MAIN_SCREEN) {
+                    MainScreen(countryCodeSharedPref = sharedPrefs.getCountryCode().toString(),
+                        buttonOnClick = { isEmpty: Boolean, countryCodeVal: String, phoneNumberVal: String, messageVal: String ->
+                            onSend(isEmpty, countryCodeVal, phoneNumberVal, messageVal)
+                        }
+                    )
                 }
-            )
+            }
         }
     }
 
@@ -63,6 +73,10 @@ class MainActivity: ComponentActivity() {
                 vibrator.vibrate(500, null)
             }
         }
+    }
+
+    companion object {
+        const val MAIN_SCREEN = "main"
     }
 
 }

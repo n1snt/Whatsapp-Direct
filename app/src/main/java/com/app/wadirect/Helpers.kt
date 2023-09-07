@@ -1,7 +1,5 @@
 package com.app.wadirect
 
-import android.content.Context
-import android.content.pm.PackageManager
 import androidx.compose.foundation.isSystemInDarkTheme
 import androidx.compose.material3.MaterialTheme
 import androidx.compose.runtime.Composable
@@ -17,14 +15,4 @@ fun StatusBarNavbarColors() {
     systemUiController.setNavigationBarColor(
         color = MaterialTheme.colorScheme.background, !isSystemInDarkTheme()
     )
-}
-
-fun isWhatsappInstalled(context: Context): Boolean {
-    val packageManager = context.packageManager
-    return try {
-        packageManager.getPackageInfo("com.whatsapp", PackageManager.GET_ACTIVITIES)
-        true
-    } catch (e: PackageManager.NameNotFoundException) {
-        false
-    }
 }
