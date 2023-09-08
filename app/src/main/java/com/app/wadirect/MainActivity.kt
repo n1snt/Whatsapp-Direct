@@ -8,12 +8,14 @@ import android.os.Bundle
 import android.os.VibrationEffect
 import android.os.Vibrator
 import android.os.VibratorManager
+import android.util.Log
 import androidx.activity.ComponentActivity
 import androidx.activity.compose.setContent
 import androidx.navigation.compose.NavHost
 import androidx.navigation.compose.composable
 import androidx.navigation.compose.rememberNavController
 import com.app.wadirect.screens.MainScreen
+import com.app.wadirect.screens.TextScreen
 
 class MainActivity: ComponentActivity() {
 
@@ -30,21 +32,24 @@ class MainActivity: ComponentActivity() {
             NavHost(navController = navController, startDestination = MAIN_SCREEN) {
                 composable(MAIN_SCREEN) {
                     MainScreen(countryCodeSharedPref = sharedPrefs.getCountryCode().toString(),
-                        buttonOnClick = { isEmpty: Boolean, countryCodeVal: String, phoneNumberVal: String, messageVal: String ->
-                            onSend(isEmpty, countryCodeVal, phoneNumberVal, messageVal)
+                        buttonOnClick = { countryCodeVal: String, phoneNumberVal: String, messageVal: String ->
+                            onSend(countryCodeVal, phoneNumberVal, messageVal)
                         }
                     )
+                }
+                composable(TEXT_SCREEN) {
+                    TextScreen(title = "Error", message = "Whatsapp is not installed") {
+                        Log.d("HI", "HELLO")
+                    }
                 }
             }
         }
     }
 
-    private fun onSend(isCountryCodeEmpty: Boolean, countryCodeVal: String, phoneNumberVal: String, messageVal: String) {
-        if (!isCountryCodeEmpty) {
-            sharedPrefs.setCountryCode(countryCodeVal)
-            vibrateOnButton()
-            sendRequest(countryCodeVal + phoneNumberVal, messageVal)
-        }
+    private fun onSend(countryCodeVal: String, phoneNumberVal: String, messageVal: String) {
+        sharedPrefs.setCountryCode(countryCodeVal)
+        vibrateOnButton()
+        sendRequest(countryCodeVal + phoneNumberVal, messageVal)
     }
 
     private fun getVibrator() {
@@ -77,6 +82,7 @@ class MainActivity: ComponentActivity() {
 
     companion object {
         const val MAIN_SCREEN = "main"
+        const val TEXT_SCREEN = "text_screen"
     }
 
 }

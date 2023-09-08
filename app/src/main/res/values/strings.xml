@@ -8,4 +8,8 @@
     <string name="country_code">Country Code</string>
     <string name="whatsapp_direct_message">Whatsapp Direct Message</string>
     <string name="actionbar_sub_text">Send messages on Whatsapp without saving a contact number</string>
+    <string name="error">Error</string>
+    <string name="country_code_is_empty">Country code is empty.</string>
+    <string name="phone_number_is_empty">Phone number is empty.</string>
+    <string name="close">Close</string>
 </resources>

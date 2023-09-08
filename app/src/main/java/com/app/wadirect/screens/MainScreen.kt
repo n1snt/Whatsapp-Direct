@@ -28,6 +28,7 @@ import androidx.compose.runtime.setValue
 import androidx.compose.ui.Alignment
 import androidx.compose.ui.Modifier
 import androidx.compose.ui.graphics.vector.ImageVector
+import androidx.compose.ui.platform.LocalContext
 import androidx.compose.ui.res.stringResource
 import androidx.compose.ui.res.vectorResource
 import androidx.compose.ui.text.input.ImeAction
@@ -41,14 +42,22 @@ import com.app.wadirect.ui.theme.WADirectTheme
 
 @OptIn(ExperimentalMaterial3Api::class)
 @Composable
-fun MainScreen(modifier: Modifier = Modifier, countryCodeSharedPref: String, buttonOnClick: (isEmpty: Boolean, countryCodeVal: String, phoneNumberVal: String, messageVal: String) -> Unit) {
+fun MainScreen(modifier: Modifier = Modifier,
+               countryCodeSharedPref: String,
+               buttonOnClick: (
+                   countryCodeVal: String,
+                   phoneNumberVal: String,
+                   messageVal: String) -> Unit) {
 
     var countryCodeVal by remember { mutableStateOf(TextFieldValue(countryCodeSharedPref)) }
     var phoneNumberVal by remember { mutableStateOf(TextFieldValue()) }
     var messageVal by remember { mutableStateOf(TextFieldValue()) }
 
+    var errorDialogBody = remember { "" }
+    val errorDialogVisible = remember { mutableStateOf(false) }
+    val context = LocalContext.current
+
     WADirectTheme {
-        // A surface container using the 'background' color from the theme
         StatusBarNavbarColors()
         Surface(
             modifier = Modifier.fillMaxSize(),
@@ -74,7 +83,6 @@ fun MainScreen(modifier: Modifier = Modifier, countryCodeSharedPref: String, but
                         .padding(paddingValues)
                         .padding(horizontal = 24.dp)
                 )
-
                 Column(
                     horizontalAlignment = Alignment.CenterHorizontally,
                     verticalArrangement = Arrangement.Center,
@@ -83,7 +91,6 @@ fun MainScreen(modifier: Modifier = Modifier, countryCodeSharedPref: String, but
                         .padding(horizontal = 22.dp)
                         .fillMaxHeight()
                 ) {
-
                     Row(
                         modifier = Modifier.fillMaxWidth(),
                     ) {
@@ -143,11 +150,19 @@ fun MainScreen(modifier: Modifier = Modifier, countryCodeSharedPref: String, but
 
                     Button(
                         onClick = {
-                            buttonOnClick(countryCodeVal.text.isBlank(),
-                                countryCodeVal.text,
-                                messageVal.text,
-                                phoneNumberVal.text
-                            )
+                            if (countryCodeVal.text.isBlank()) {
+                                errorDialogBody = context.resources.getString(R.string.country_code_is_empty)
+                                errorDialogVisible.value = true
+                            } else if(phoneNumberVal.text.isBlank()) {
+                                errorDialogBody = context.resources.getString(R.string.phone_number_is_empty)
+                                errorDialogVisible.value = true
+                            } else {
+                                buttonOnClick(
+                                    countryCodeVal.text,
+                                    messageVal.text,
+                                    phoneNumberVal.text
+                                )
+                            }
                         },
                         modifier = Modifier
                             .padding(top = 25.dp)
@@ -166,19 +181,18 @@ fun MainScreen(modifier: Modifier = Modifier, countryCodeSharedPref: String, but
                                 horizontal = 5.dp),
                         )
                     }
-
+                    ErrorDialog(
+                        body = errorDialogBody,
+                        visible = errorDialogVisible
+                    )
                 }
-
-
-
             }
         }
     }
-
 }
 
 @Preview(showBackground = true, showSystemUi = true)
 @Composable
 private fun MainScreenPreview() {
-    MainScreen(countryCodeSharedPref = "", buttonOnClick = { _,_,_,_ -> })
+    MainScreen(countryCodeSharedPref = "", buttonOnClick = { _,_,_ -> })
 }
