@@ -20,6 +20,9 @@ import androidx.lifecycle.LifecycleOwner
 import com.google.accompanist.systemuicontroller.rememberSystemUiController
 
 
+/**
+ * This function matches the colors of status bar & navbar to background
+ */
 @Composable
 fun StatusBarNavbarColors() {
     val systemUiController = rememberSystemUiController()
@@ -31,6 +34,11 @@ fun StatusBarNavbarColors() {
     )
 }
 
+/**
+ * This function checks if whatsapp is installed on the device.
+ * @param context
+ * @return boolean
+ */
 fun isWhatsAppInstalled(context: Context): Boolean {
     val packageManager = context.packageManager
     return try {
@@ -41,6 +49,11 @@ fun isWhatsAppInstalled(context: Context): Boolean {
     }
 }
 
+/**
+ * Launches play store listing of whatsapp
+ * @param context
+ * @param packageName
+ */
 fun openPlayStore(context: Context, packageName: String) {
     try {
         context.startActivity(Intent(Intent.ACTION_VIEW, Uri.parse("market://details?id=$packageName")))
@@ -49,6 +62,10 @@ fun openPlayStore(context: Context, packageName: String) {
     }
 }
 
+/**
+ * This function helps change the UI depending on the activity lifecycle.
+ * @param lifecycleOwner
+ */
 @Composable
 fun rememberLifecycleEvent(lifecycleOwner: LifecycleOwner = LocalLifecycleOwner.current): Lifecycle.Event {
     var state by remember { mutableStateOf(Lifecycle.Event.ON_ANY) }

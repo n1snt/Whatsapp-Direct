@@ -11,6 +11,11 @@ import androidx.compose.ui.res.stringResource
 import androidx.compose.ui.tooling.preview.Preview
 import com.app.wadirect.R
 
+/**
+ * This component displays an error dialog
+ * @param body
+ * @param visible
+ */
 @Composable
 fun ErrorDialog(body: MutableState<String>, visible: MutableState<Boolean>) {
     if (visible.value) {

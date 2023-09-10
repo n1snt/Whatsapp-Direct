@@ -80,12 +80,24 @@ class MainActivity: ComponentActivity() {
         }
     }
 
-    private fun onSend(countryCodeVal: String, phoneNumberVal: String, messageVal: String) {
+    /**
+     * Launches whatsapp of the phone number passed
+     * @param countryCodeVal
+     * @param phoneNumber
+     * @param message
+     */
+    private fun onSend(countryCodeVal: String, phoneNumber: String, message: String) {
         sharedPrefs.setCountryCode(countryCodeVal)
         vibrateOnButton()
-        sendRequest(countryCodeVal + phoneNumberVal, messageVal)
+        val intent = Intent(Intent.ACTION_VIEW)
+        intent.data = Uri.parse("https://api.whatsapp.com/send?phone=${phoneNumber}&text=${Uri.encode(message)}")
+        startActivity(intent)
     }
 
+
+    /**
+     * Initializes vibration.
+     */
     private fun getVibrator() {
         vibrator = if (Build.VERSION.SDK_INT >= Build.VERSION_CODES.S) {
             val vibratorManager =
@@ -97,12 +109,9 @@ class MainActivity: ComponentActivity() {
         }
     }
 
-    private fun sendRequest(phoneNumber: String, message: String) {
-        val intent = Intent(Intent.ACTION_VIEW)
-        intent.data = Uri.parse("https://api.whatsapp.com/send?phone=${phoneNumber}&text=${Uri.encode(message)}")
-        startActivity(intent)
-    }
-
+    /**
+     * This function vibrates the device when button is pressed.
+     */
     @Suppress("DEPRECATION")
     private fun vibrateOnButton() {
         if (vibrator.hasVibrator()) {

@@ -40,6 +40,12 @@ import com.app.wadirect.R
 import com.app.wadirect.StatusBarNavbarColors
 import com.app.wadirect.ui.theme.WADirectTheme
 
+/**
+ * This is the main screen which is shown when app is launched
+ * @param modifier
+ * @param countryCodeSharedPref
+ * @param buttonOnClick
+ */
 @OptIn(ExperimentalMaterial3Api::class)
 @Composable
 fun MainScreen(modifier: Modifier = Modifier,

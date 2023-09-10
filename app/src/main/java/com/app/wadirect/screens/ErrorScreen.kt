@@ -22,6 +22,12 @@ import com.app.wadirect.R
 import com.app.wadirect.StatusBarNavbarColors
 import com.app.wadirect.ui.theme.WADirectTheme
 
+/**
+ * Displays a full screen Error.
+ * @param title
+ * @param message
+ * @param onButtonClick
+ */
 @OptIn(ExperimentalMaterial3Api::class)
 @Composable
 fun ErrorScreen(title: String, message: String, onButtonClick: () -> Unit) {
@@ -67,7 +73,7 @@ fun ErrorScreen(title: String, message: String, onButtonClick: () -> Unit) {
 
 @Preview(showBackground = true, showSystemUi = true)
 @Composable
-fun TextScreenPreview() {
+private fun TextScreenPreview() {
     ErrorScreen(
         title = "Error",
         message = "Lorem Ipsum is simply dummy text of the printing and typesetting industry. Lorem Ipsum has been the industry's standard dummy text ever since the 1500s, when an unknown printer took a galley of type and scrambled it to make a type specimen book. It has survived not only five centuries",
