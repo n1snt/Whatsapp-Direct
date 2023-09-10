@@ -6,4 +6,10 @@
     <string name="country_code">Código de país</string>
     <string name="whatsapp_direct_message">Mensaje directo de Whatsapp</string>
     <string name="actionbar_sub_text">Enviar mensajes en Whatsapp sin guardar un número de contacto</string>
+    <string name="error">Error</string>
+    <string name="country_code_is_empty">El código de país está vacío.</string>
+    <string name="phone_number_is_empty">El número de teléfono está vacío.</string>
+    <string name="close">Cerrar</string>
+    <string name="download_whatsapp">Descargar WhatsApp</string>
+    <string name="whatsapp_not_installed_description">Parece que WhatsApp no está instalado en su dispositivo en este momento. Para usar nuestra aplicación, por favor descargue WhatsApp desde la tienda Play haciendo clic en el botón de abajo.</string>
 </resources>

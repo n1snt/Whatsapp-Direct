@@ -6,4 +6,10 @@
     <string name="country_code">Landesvorwahl</string>
     <string name="whatsapp_direct_message">WhatsApp-Direktnachricht</string>
     <string name="actionbar_sub_text">Senden Sie Nachrichten auf WhatsApp, ohne eine Kontaktnummer zu speichern</string>
+    <string name="error">Fehler</string>
+    <string name="country_code_is_empty">Ländercode ist leer.</string>
+    <string name="phone_number_is_empty">Telefonnummer ist leer.</string>
+    <string name="close">Schließen</string>
+    <string name="download_whatsapp">WhatsApp herunterladen</string>
+    <string name="whatsapp_not_installed_description">Es sieht so aus, als wäre WhatsApp derzeit nicht auf Ihrem Gerät installiert. Um unsere App zu verwenden, laden Sie bitte WhatsApp aus dem Play Store herunter, indem Sie unten auf die Schaltfläche klicken.</string>
 </resources>

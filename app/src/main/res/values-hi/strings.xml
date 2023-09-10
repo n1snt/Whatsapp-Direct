@@ -6,4 +6,10 @@
     <string name="country_code">कंट्री कोड</string>
     <string name="whatsapp_direct_message">व्हाट्सएप डायरेक्ट मैसेज</string>
     <string name="actionbar_sub_text">संपर्क नंबर सेव किए बिना व्हाट्सएप पर संदेश भेजें</string>
+    <string name="error">त्रुटि</string>
+    <string name="country_code_is_empty">कंट्री कोड खाली है।</string>
+    <string name="phone_number_is_empty">फ़ोन नंबर खाली है।</string>
+    <string name="close">बंद करें</string>
+    <string name="download_whatsapp">WhatsApp डाउनलोड करें</string>
+    <string name="whatsapp_not_installed_description">ऐसा लगता है कि आपके डिवाइस पर व्हाट्सएप वर्तमान में स्थापित नहीं है। हमारे ऐप्लिकेशन का उपयोग करने के लिए, कृपया नीचे दिए गए बटन पर क्लिक करके प्ले स्टोर से WhatsApp डाउनलोड करें।</string>
 </resources>

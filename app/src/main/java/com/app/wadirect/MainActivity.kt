@@ -13,6 +13,7 @@ import androidx.activity.compose.setContent
 import androidx.compose.runtime.Composable
 import androidx.compose.runtime.LaunchedEffect
 import androidx.compose.ui.platform.LocalContext
+import androidx.compose.ui.res.stringResource
 import androidx.lifecycle.Lifecycle
 import androidx.navigation.NavHostController
 import androidx.navigation.compose.NavHost
@@ -51,8 +52,8 @@ class MainActivity: ComponentActivity() {
             }
             composable(TEXT_SCREEN) {
                 ErrorScreen(
-                    title = "Error",
-                    message = "It looks like WhatsApp is not currently installed on your device. To use our app, please download WhatsApp from the Play Store by clicking the button below.",
+                    title = stringResource(R.string.error),
+                    message = stringResource(R.string.whatsapp_not_installed_description),
                     onButtonClick = { openPlayStore(context, "com.whatsapp") },
                 )
             }

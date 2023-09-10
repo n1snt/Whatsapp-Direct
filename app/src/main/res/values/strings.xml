@@ -12,4 +12,6 @@
     <string name="country_code_is_empty">Country code is empty.</string>
     <string name="phone_number_is_empty">Phone number is empty.</string>
     <string name="close">Close</string>
+    <string name="download_whatsapp">Download Whatsapp</string>
+    <string name="whatsapp_not_installed_description">It looks like WhatsApp is not currently installed on your device. To use our app, please download WhatsApp from the Play Store by clicking the button below.</string>
 </resources>

@@ -6,4 +6,10 @@
     <string name="country_code">राष्ट्र संकेतांक</string>
     <string name="whatsapp_direct_message">व्हाट्सएप डायरेक्ट मेसेज</string>
     <string name="actionbar_sub_text">संपर्क क्रमांक जतन न करता Whatsapp वर संदेश पाठवा</string>
+    <string name="error">त्रुटी</string>
+    <string name="country_code_is_empty">देश कोड रिक्त आहे.</string>
+    <string name="phone_number_is_empty">फोन नंबर रिक्त आहे.</string>
+    <string name="close">बंद करा</string>
+    <string name="download_whatsapp">WhatsApp डाउनलोड करा</string>
+    <string name="whatsapp_not_installed_description">तुमच्या डिव्हाइसवर वर्तमानपत्रक WhatsApp स्थापित आहे नाही असे दिसतं. आमच्या अ‍ॅपचा वापर करण्यासाठी, कृपया खालील बटणावर क्लिक करून प्ले स्टोअरमधून WhatsApp डाउनलोड करा.</string>
 </resources>
