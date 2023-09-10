@@ -12,7 +12,7 @@ import androidx.compose.ui.tooling.preview.Preview
 import com.app.wadirect.R
 
 @Composable
-fun ErrorDialog(body: String, visible: MutableState<Boolean>) {
+fun ErrorDialog(body: MutableState<String>, visible: MutableState<Boolean>) {
     if (visible.value) {
         AlertDialog(
             onDismissRequest = { visible.value = false },
@@ -26,7 +26,7 @@ fun ErrorDialog(body: String, visible: MutableState<Boolean>) {
                 }
             },
             title = { Text(text = stringResource(R.string.error)) },
-            text = { Text(text = body) },
+            text = { Text(text = body.value) },
         )
     }
 }
@@ -35,5 +35,5 @@ fun ErrorDialog(body: String, visible: MutableState<Boolean>) {
 @Preview(showBackground = true, showSystemUi = true)
 @Composable
 private fun ErrorDialogPreview() {
-    ErrorDialog(body = "Error Occurred", mutableStateOf(true))
+    ErrorDialog(body = mutableStateOf("Error Occurred"), mutableStateOf(true))
 }

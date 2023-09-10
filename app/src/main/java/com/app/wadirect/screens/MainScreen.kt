@@ -53,7 +53,7 @@ fun MainScreen(modifier: Modifier = Modifier,
     var phoneNumberVal by remember { mutableStateOf(TextFieldValue()) }
     var messageVal by remember { mutableStateOf(TextFieldValue()) }
 
-    var errorDialogBody = remember { "" }
+    val errorDialogBody = remember { mutableStateOf("") }
     val errorDialogVisible = remember { mutableStateOf(false) }
     val context = LocalContext.current
 
@@ -151,10 +151,10 @@ fun MainScreen(modifier: Modifier = Modifier,
                     Button(
                         onClick = {
                             if (countryCodeVal.text.isBlank()) {
-                                errorDialogBody = context.resources.getString(R.string.country_code_is_empty)
+                                errorDialogBody.value = context.resources.getString(R.string.country_code_is_empty)
                                 errorDialogVisible.value = true
                             } else if(phoneNumberVal.text.isBlank()) {
-                                errorDialogBody = context.resources.getString(R.string.phone_number_is_empty)
+                                errorDialogBody.value = context.resources.getString(R.string.phone_number_is_empty)
                                 errorDialogVisible.value = true
                             } else {
                                 buttonOnClick(
