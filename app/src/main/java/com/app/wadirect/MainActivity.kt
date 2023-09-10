@@ -8,14 +8,18 @@ import android.os.Bundle
 import android.os.VibrationEffect
 import android.os.Vibrator
 import android.os.VibratorManager
-import android.util.Log
 import androidx.activity.ComponentActivity
 import androidx.activity.compose.setContent
+import androidx.compose.runtime.Composable
+import androidx.compose.runtime.LaunchedEffect
+import androidx.compose.ui.platform.LocalContext
+import androidx.lifecycle.Lifecycle
+import androidx.navigation.NavHostController
 import androidx.navigation.compose.NavHost
 import androidx.navigation.compose.composable
 import androidx.navigation.compose.rememberNavController
+import com.app.wadirect.screens.ErrorScreen
 import com.app.wadirect.screens.MainScreen
-import com.app.wadirect.screens.TextScreen
 
 class MainActivity: ComponentActivity() {
 
@@ -26,23 +30,52 @@ class MainActivity: ComponentActivity() {
         super.onCreate(savedInstanceState)
         sharedPrefs = SharedPrefs(this)
         getVibrator()
-
+        val whatsappInstalled = isWhatsAppInstalled(this)
         setContent {
             val navController = rememberNavController()
-            NavHost(navController = navController, startDestination = MAIN_SCREEN) {
-                composable(MAIN_SCREEN) {
-                    MainScreen(countryCodeSharedPref = sharedPrefs.getCountryCode().toString(),
-                        buttonOnClick = { countryCodeVal: String, phoneNumberVal: String, messageVal: String ->
-                            onSend(countryCodeVal, phoneNumberVal, messageVal)
-                        }
-                    )
-                }
-                composable(TEXT_SCREEN) {
-                    TextScreen(title = "Error", message = "Whatsapp is not installed") {
-                        Log.d("HI", "HELLO")
+            val startDestination = if (whatsappInstalled) { MAIN_SCREEN } else { TEXT_SCREEN }
+            Navigation(navController = navController, startDestination = startDestination)
+        }
+    }
+
+    @Composable
+    private fun Navigation(navController: NavHostController, startDestination: String) {
+        val context = LocalContext.current
+        NavHost(navController = navController, startDestination = startDestination) {
+            composable(MAIN_SCREEN) {
+                MainScreen(countryCodeSharedPref = sharedPrefs.getCountryCode().toString(),
+                    buttonOnClick = { countryCodeVal: String, phoneNumberVal: String, messageVal: String ->
+                        onSend(countryCodeVal, phoneNumberVal, messageVal)
                     }
-                }
+                )
             }
+            composable(TEXT_SCREEN) {
+                ErrorScreen(
+                    title = "Error",
+                    message = "It looks like WhatsApp is not currently installed on your device. To use our app, please download WhatsApp from the Play Store by clicking the button below.",
+                    onButtonClick = { openPlayStore(context, "com.whatsapp") },
+                )
+            }
+        }
+
+        val lifecycleEvent = rememberLifecycleEvent()
+        LaunchedEffect(lifecycleEvent) {
+            if (lifecycleEvent == Lifecycle.Event.ON_RESUME) {
+                navigateOnStateChange(navController)
+            }
+        }
+    }
+
+    /**
+     * Navigates to MAIN_SCREEN if whatsapp is installed
+     * Else navigate to TEXT_SCREEN
+     */
+    private fun navigateOnStateChange(navController: NavHostController) {
+        navController.popBackStack()
+        if (isWhatsAppInstalled(this)) {
+            navController.navigate(MAIN_SCREEN)
+        } else {
+            navController.navigate(TEXT_SCREEN)
         }
     }
 
