@@ -90,7 +90,8 @@ class MainActivity: ComponentActivity() {
         sharedPrefs.setCountryCode(countryCodeVal)
         vibrateOnButton()
         val intent = Intent(Intent.ACTION_VIEW)
-        intent.data = Uri.parse("https://api.whatsapp.com/send?phone=${phoneNumber}&text=${Uri.encode(message)}")
+        val phoneNumberVal = countryCodeVal + phoneNumber
+        intent.data = Uri.parse("https://api.whatsapp.com/send?phone=${phoneNumberVal}&text=${Uri.encode(message)}")
         startActivity(intent)
     }
 

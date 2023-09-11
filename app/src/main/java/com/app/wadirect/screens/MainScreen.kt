@@ -165,8 +165,8 @@ fun MainScreen(modifier: Modifier = Modifier,
                             } else {
                                 buttonOnClick(
                                     countryCodeVal.text,
-                                    messageVal.text,
-                                    phoneNumberVal.text
+                                    phoneNumberVal.text,
+                                    messageVal.text
                                 )
                             }
                         },
